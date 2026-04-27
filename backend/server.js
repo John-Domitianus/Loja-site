@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const path = require("path");
+const fs = require("fs");
 
 const app = express();
 
@@ -26,6 +27,7 @@ const vendaRoutes = require(path.join(__dirname, "routes", "vendaRoutes"));
 app.use("/vendas", vendaRoutes);
 
 // ✔ SERVIR FRONTEND (IMPORTANTE)
+console.log("PUBLIC EXISTS?", fs.existsSync(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "public")));
 
 // ✔ FALLBACK PARA REACT (rotas tipo /dashboard)
