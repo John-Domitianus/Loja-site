@@ -5,8 +5,8 @@
     "dev": "node server.js"
   },
   "dependencies": {
-    "express": "...",
-    "mongoose": "...",
-    "cors": "..."
+    "cors": "file:...",
+    "express": "file:...",
+    "mongoose": "file:..."
   }
 }
