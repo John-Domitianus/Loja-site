@@ -1,0 +1,12 @@
+{
+  "name": "app-loja",
+  "version": "1.0.0",
+  "scripts": {
+    "backend": "cd backend && node server.js",
+    "frontend": "cd frontend && npm run dev -- --host",
+    "dev": "concurrently -n BACKEND,FRONTEND -c green,cyan \"npm run backend\" \"npm run frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
