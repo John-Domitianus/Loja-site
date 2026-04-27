@@ -6,7 +6,9 @@ const path = require("path");
 const app = express();
 
 // MIDDLEWARES
-app.use(cors());
+app.use(cors({
+  origin: "*"
+}));
 app.use(express.json());
 
 // ✔ CONEXÃO COM BANCO (Railway ou Mongo Atlas)

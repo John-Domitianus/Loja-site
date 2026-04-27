@@ -1,12 +1,13 @@
 {
-  "name": "Bella Boutique",
+  "name": "Bella",
   "version": "1.0.0",
   "scripts": {
-    "backend": "cd backend && node server.js",
-    "frontend": "cd frontend && npm run dev -- --host",
-    "dev": "concurrently -n BACKEND,FRONTEND -c green,cyan \"npm run backend\" \"npm run frontend\""
+    "backend": "cd backend && npm install && node server.js",
+    "frontend": "cd frontend && npm install && npm run dev -- --host 0.0.0.0 --port 8080",
+    "dev": "concurrently -n BACKEND,FRONTEND -c green,cyan \"npm run backend\" \"npm run frontend\"",
+    "start": "npm run dev"
   },
-  "devDependencies": {
-    "concurrently": "^8.2.0"
+  "dependencies": {
+    "concurrently": "^8.2.2"
   }
 }
