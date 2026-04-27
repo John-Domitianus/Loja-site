@@ -2,9 +2,10 @@
   "name": "app-loja",
   "version": "1.0.0",
   "scripts": {
-    "backend": "cd backend && npm install && node server.js",
-    "frontend": "cd frontend && npm install && vite --host 0.0.0.0 --port $PORT",
-    "dev": "concurrently -n BACKEND,FRONTEND -c green,cyan \"npm run backend\" \"npm run frontend\"",
+    "install-all": "cd backend && npm install && cd ../frontend && npm install",
+    "backend": "cd backend && node server.js",
+    "frontend": "cd frontend && npx vite --host 0.0.0.0 --port $PORT",
+    "dev": "npm run install-all && concurrently -n BACKEND,FRONTEND -c green,cyan \"npm run backend\" \"npm run frontend\"",
     "start": "npm run dev"
   },
   "dependencies": {
