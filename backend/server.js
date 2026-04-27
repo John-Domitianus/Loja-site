@@ -6,6 +6,8 @@ const fs = require("fs");
 
 const app = express();
 
+console.log("Server.Js do Backend carregando...");
+
 // MIDDLEWARES
 app.use(cors({
   origin: "*"
@@ -46,4 +48,5 @@ const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Servidor rodando na porta ${PORT}`);
+  console.log("Server.Js do Backend carregado!");
 });
