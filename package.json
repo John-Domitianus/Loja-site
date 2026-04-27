@@ -1,5 +1,5 @@
 {
-  "name": "app-loja",
+  "name": "Bella Boutique",
   "version": "1.0.0",
   "scripts": {
     "backend": "cd backend && node server.js",
