@@ -11,23 +11,26 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// ✔ CONEXÃO COM BANCO (Railway ou Mongo Atlas)
+// ✔ CONEXÃO COM BANCO
 const MONGO_URL = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/loja";
 
 mongoose.connect(MONGO_URL)
   .then(() => console.log("MongoDB conectado"))
   .catch(err => console.log("Erro ao conectar no MongoDB:", err));
 
-// ROTAS
+// ROTAS API
 const produtoRoutes = require(path.join(__dirname, "routes", "produtoRoutes"));
 app.use("/produtos", produtoRoutes);
 
 const vendaRoutes = require(path.join(__dirname, "routes", "vendaRoutes"));
 app.use("/vendas", vendaRoutes);
 
-// ROTA DE TESTE
-app.get("/", (req, res) => {
-  res.send("Servidor funcionando");
+// ✔ SERVIR FRONTEND (IMPORTANTE)
+app.use(express.static(path.join(__dirname, "public")));
+
+// ✔ FALLBACK PARA REACT (rotas tipo /dashboard)
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 // ERRO GLOBAL
@@ -36,9 +39,9 @@ app.use((err, req, res, next) => {
   res.status(500).json({ erro: "Erro interno no servidor" });
 });
 
-// ✔ PORTA CORRETA PARA RAILWAY
+// PORTA
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
