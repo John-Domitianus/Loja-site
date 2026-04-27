@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const API = "http://192.168.18.70:3000"; // IP
+const API = "https://bella-boutique.up.railway.app";
 
 export default function Produto() {
   const [nome, setNome] = useState("");
