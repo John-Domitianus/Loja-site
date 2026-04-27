@@ -1,8 +1,12 @@
 {
-  "name": "Bella Boutique",
-  "version": "1.0.0",
+  "name": "backend",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "...",
+    "mongoose": "...",
+    "cors": "..."
   }
 }
